@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var edResto:EditText
     lateinit var txtResto:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
+        //comentario solo para el commit
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
