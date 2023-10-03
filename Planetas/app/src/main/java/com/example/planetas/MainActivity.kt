@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        rellenarPlanetas()
 
         btnTierra=findViewById(R.id.btnTierra)
         btnMercu=findViewById(R.id.btnMercurio)
@@ -117,27 +116,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun detallesPlaneta(i:Int) {
 
-        edNombre.setText(planetas[i].nombre)//hacer otra que busque por nombre, un Hastable
-        edTipo.setText(planetas[i].tipo.toString())
-        edTipo.setText(planetas[i].tipo.toString())
-        edRadio.setText(planetas[i].radio.toString())
-        edGravedad.setText(planetas[i].gravedad.toString())
-        edMasa.setText(planetas[i].masa.toString())
-        edDistancia.setText(planetas[i].distanciaAlSol.toString())
+        edNombre.setText(Planetas.planetas[i].nombre)
+        edTipo.setText(Planetas.planetas[i].tipo.toString())
+        edRadio.setText(Planetas.planetas[i].radio.toString()+" kms.")
+        edGravedad.setText(Planetas.planetas[i].gravedad.toString()+" m/s2.")
+        edMasa.setText(Planetas.planetas[i].masa.toString()+" kg.")
+        edDistancia.setText(Planetas.planetas[i].distanciaAlSol.toString()+" mill de kms.")
     }
 
-    private fun rellenarPlanetas() {
-        planetas = arrayOf(
-            Planeta("Mercurio", 3.3011e23, 2.4397e6, 57.9e6, TipoPlaneta.ROCOSO, 3.7),
-            Planeta("Venus", 4.8675e24, 6.0518e6, 108.2e6, TipoPlaneta.ROCOSO, 8.87),
-            Planeta("Tierra", 5.972e24, 6.371e6, 149.6e6, TipoPlaneta.ROCOSO, 9.81),
-            Planeta("Marte", 6.4171e23, 3.3895e6, 227.9e6, TipoPlaneta.ROCOSO, 3.71),
-            Planeta("Júpiter", 1.8982e27, 6.9911e7, 778.3e6, TipoPlaneta.GASEOSO, 24.79),
-            Planeta("Saturno", 5.6834e26, 5.8232e7, 1427.0e6, TipoPlaneta.GASEOSO, 10.44),
-            Planeta("Urano", 8.6810e25, 2.5362e7, 2871.0e6, TipoPlaneta.HELADO, 8.69),
-            Planeta("Neptuno", 1.02413e26, 2.4622e7, 4495.1e6, TipoPlaneta.HELADO, 11.15)
-        )
-    }
+
 }
 
 
