@@ -6,62 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnSatur"
-        android:layout_width="105dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:text="Saturno"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
-
-    <Button
-        android:id="@+id/btnJupit"
-        android:layout_width="105dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="208dp"
-        android:text="Júpiter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
-
-    <Button
-        android:id="@+id/btnUrano"
-        android:layout_width="105dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="208dp"
-        android:text="Urano"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
-
-    <Button
-        android:id="@+id/btnNeptu"
-        android:layout_width="105dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="208dp"
-        android:text="Neptuno"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -216,55 +160,110 @@
 
     <Button
         android:id="@+id/btnTierra"
-        android:layout_width="105dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="208dp"
         android:text="Tierra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintVertical_bias="0.792" />
 
     <Button
-        android:id="@+id/btnVenus"
-        android:layout_width="105dp"
+        android:id="@+id/btnJupit"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="208dp"
-        android:text="Venus"
+        android:text="Júpiter"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+        app:layout_constraintVertical_bias="0.672" />
+
+    <Button
+        android:id="@+id/btnUrano"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="208dp"
+        android:text="Urano"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672" />
 
     <Button
         android:id="@+id/btnMercurio"
-        android:layout_width="105dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="208dp"
         android:text="Mercurio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+        app:layout_constraintVertical_bias="0.672" />
 
     <Button
         android:id="@+id/btnMarte"
-        android:layout_width="105dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="208dp"
         android:text="Marte"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintVertical_bias="0.792" />
+
+    <Button
+        android:id="@+id/btnSatur"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:text="Saturno"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.669" />
+
+    <Button
+        android:id="@+id/btnNeptu"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="208dp"
+        android:text="Neptuno"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672" />
+
+    <Button
+        android:id="@+id/btnVenus"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="208dp"
+        android:text="Venus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672" />
 
     <RadioGroup
         android:id="@+id/radioGroup2"
