@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
     var puntos2: Int = 0
     var ganadas1: Int = 0
     var ganadas2: Int = 0
-
+    //adaptarlo creano una Clase Jugador, y otra Dado, dentro de una clase JuegoDados
+    //en vez de variables sueltas
     val dadoImagenes = mapOf(
         0 to R.drawable.num0,
         1 to R.drawable.num1,
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else{
-                Toast.makeText(this, "El número de tiradas del jugador no puede ser mayor de 5",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "El número de tiradas del jugador 1 no puede ser mayor de 5",Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -111,7 +112,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else{
-                Toast.makeText(this, "El número de tiradas del ordenador no puede ser mayor de 5",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "El número de tiradas del jugador 2 no puede ser mayor de 5",Toast.LENGTH_SHORT).show()
             }
 
         }
