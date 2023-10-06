@@ -10,20 +10,24 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
         android:layout_marginTop="43dp"
+        android:layout_marginEnd="57dp"
         android:layout_marginBottom="283dp"
         android:text="BARRAS DE PROGRESO"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarContinua"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img1"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06" />
 
     <EditText
         android:id="@+id/caja1"
-        android:layout_width="210dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="66dp"
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="76dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -31,9 +35,19 @@
 
     <EditText
         android:id="@+id/caja2"
-        android:layout_width="210dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="144dp"
+        android:layout_width="339dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="156dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/caja1"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/caja3"
+        android:layout_width="339dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="224dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/caja1"
@@ -46,22 +60,24 @@
         android:layout_height="24dp"
         android:layout_marginStart="2dp"
         android:layout_marginBottom="245dp"
+        android:max="10"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/seekBar2"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+        app:layout_constraintStart_toStartOf="@+id/seekBarDiscreta"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarDiscreta" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/seekBarContinua"
         android:layout_width="219dp"
         android:layout_height="23dp"
         android:layout_marginStart="1dp"
         android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
+        android:max="100"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarDiscreta"
         app:layout_constraintStart_toStartOf="@+id/caja2"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <SeekBar
-        android:id="@+id/seekBar2"
+        android:id="@+id/seekBarDiscreta"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="217dp"
         android:layout_height="0dp"
@@ -69,7 +85,34 @@
         android:max="10"
         android:progress="3"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/seekBar"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintStart_toStartOf="@+id/seekBarContinua"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarContinua" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="0dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="66dp"
+        android:contentDescription="Martín Pescador 1"
+        android:src="@drawable/martin1"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="89dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="66dp"
+        android:contentDescription="Martín Pescador 1"
+        android:src="@drawable/martin2"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
