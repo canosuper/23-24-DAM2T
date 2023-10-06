@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     binding.botReiniciar.visibility= View.VISIBLE
+                    binding.botReiniciarTodo.visibility= View.VISIBLE
                 }
             }
             else{
@@ -109,6 +110,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     binding.botReiniciar.visibility= View.VISIBLE
+                    binding.botReiniciarTodo.visibility= View.VISIBLE
                 }
             }
             else{
@@ -130,6 +132,28 @@ class MainActivity : AppCompatActivity() {
             binding.cajaTiradas1.setText("0")
             binding.cajaTiradas2.setText("0")
             binding.botReiniciar.visibility=View.INVISIBLE
+            binding.botReiniciarTodo.visibility=View.INVISIBLE
+            binding.textView7.text=""
+            binding.textView8.text=""
+        }
+        binding.botReiniciarTodo.setOnClickListener {
+            tiradas1=0
+            tiradas2=0
+            puntos1=0
+            puntos2=0
+            ganadas1=0
+            ganadas2=0
+            val imagenDado = dadoImagenes[0]
+            binding.dado1.setImageResource(imagenDado!!)//fuerzo a que no es nulo y ahorro el if
+            binding.dado2.setImageResource(imagenDado!!)
+            binding.cajaPuntos1.setText("0")
+            binding.cajaPuntos2.setText("0")
+            binding.cajaTiradas1.setText("0")
+            binding.cajaTiradas2.setText("0")
+            binding.cajaGanadas1.setText("0")
+            binding.cajaGanadas2.setText("0")
+            binding.botReiniciar.visibility=View.INVISIBLE
+            binding.botReiniciarTodo.visibility=View.INVISIBLE
             binding.textView7.text=""
             binding.textView8.text=""
         }
