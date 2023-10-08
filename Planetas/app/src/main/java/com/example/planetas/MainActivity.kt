@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var rb1:RadioButton
     lateinit var rb2:RadioButton
     lateinit var rb3:RadioButton
-    var planetas= arrayOf<Planeta>()
+    
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
