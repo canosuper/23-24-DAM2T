@@ -16,8 +16,9 @@ class MainActivity : AppCompatActivity() {
     var puntos2: Int = 0
     var ganadas1: Int = 0
     var ganadas2: Int = 0
-    //adaptarlo creano una Clase Jugador, y otra Dado, dentro de una clase JuegoDados
+    //adaptarlo creando una Clase Jugador, y otra Dado, dentro de una clase JuegoDados
     //en vez de variables sueltas
+    //además todas las etiquetas deberían obtenerse el fichero string.
     val dadoImagenes = mapOf(
         0 to R.drawable.num0,
         1 to R.drawable.num1,
