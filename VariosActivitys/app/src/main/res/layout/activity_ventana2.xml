@@ -96,13 +96,14 @@
 
     <EditText
         android:id="@+id/multiLine"
-        android:layout_width="352dp"
-        android:layout_height="191dp"
+        android:layout_width="316dp"
+        android:layout_height="188dp"
         android:background="#D3C0F4"
         android:clickable="false"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:textColor="#253071"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"

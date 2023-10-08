@@ -24,8 +24,10 @@ class Ventana2 : AppCompatActivity() {
 
         Personas.aniadirPersona(persona)
         var cadena: String = ""
+        var i:Int=1
         for(p in Personas.personas){
-            cadena+=p.nombre+" "+p.edad +"\n"
+            cadena+=" "+i+". " +p.nombre+" "+p.edad +"\n"
+            i++
             binding.multiLine.setText(cadena)
         }
         binding.boton.setOnClickListener {
