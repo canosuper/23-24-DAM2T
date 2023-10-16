@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding.imageButton2.setOnClickListener {
             mediaplayer.stop()
             mediaplayer = MediaPlayer.create(this, R.raw.tos)
+
         }
     }
 }
