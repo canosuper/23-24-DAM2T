@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     val matriz = Array(3) { Array(3) { Estado.VACIO } }
     lateinit var binding : ActivityMainBinding
-    var turnoJug1: Boolean = true
+    var turnoJug1: Boolean = true //controla quien tira
+    var turnoPorPartida = true // controla quien empieza cada vez
     var puntosJug1: Int=0
     var puntosJug2: Int=0
     var tirada:Int=0
@@ -66,8 +67,9 @@ class MainActivity : AppCompatActivity() {
                 matriz[i][j] = Estado.VACIO
             }
         }
-        turnoJug1 = true
-        binding.imTurno.setImageResource(R.drawable.noviacadaver)
+        turnoPorPartida=!turnoPorPartida
+        turnoJug1 = turnoPorPartida
+        if (turnoJug1) binding.imTurno.setImageResource(R.drawable.noviacadaver) else binding.imTurno.setImageResource(R.drawable.zombi)
         tirada=0
         finPartida=false
 
