@@ -85,39 +85,42 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun evaluarJuego(i: Int, j: Int) {
-        if(!finPartida) {
-            pintaFicha(i, j)
-            tirada++
-            if (turnoJug1) {
-                // binding.im00.setImageResource(R.drawable.ic_sun)
-                matriz[i][j] = Estado.JUG1
-                turnoJug1 = false
-                binding.imTurno.setImageResource(R.drawable.zombi)
-            } else {
-                // binding.im00.setImageResource(R.drawable.ic_moon)
-                matriz[i][j] = Estado.JUG2
-                turnoJug1 = true
-                binding.imTurno.setImageResource(R.drawable.noviacadaver)
-            }
-            if ((hayGanador() != Estado.VACIO) || (tirada == 9)) {
-                if (hayGanador() == Estado.JUG1) {
-                    finPartida = true
-                    puntosJug1 += 1
-                    binding.txtPuntos1.text = puntosJug1.toString()
-                    Toast.makeText(this, "GANADOR JUGADOR 1", Toast.LENGTH_SHORT).show()
+        //si ya ha pulsado la casilla no hacemos nada.
+        if(matriz[i][j]==Estado.VACIO) {
+            if (!finPartida) {
+                pintaFicha(i, j)
+                tirada++
+                if (turnoJug1) {
+                    // binding.im00.setImageResource(R.drawable.ic_sun)
+                    matriz[i][j] = Estado.JUG1
+                    turnoJug1 = false
+                    binding.imTurno.setImageResource(R.drawable.zombi)
                 } else {
-                    if (hayGanador() == Estado.JUG2) {
-                        finPartida = true
-                        puntosJug2 += 1
-                        binding.txtPuntos2.text = puntosJug2.toString()
-                        Toast.makeText(this, "GANADOR JUGADOR 2", Toast.LENGTH_SHORT).show()
-                    } else {
-                        //no hay ganador y se llega a la tirada 9
-                        finPartida = true
-                        Toast.makeText(this, "¡¡EMPATE!!", Toast.LENGTH_SHORT).show()
-                    }
+                    // binding.im00.setImageResource(R.drawable.ic_moon)
+                    matriz[i][j] = Estado.JUG2
+                    turnoJug1 = true
+                    binding.imTurno.setImageResource(R.drawable.noviacadaver)
                 }
-                binding.button.visibility = View.VISIBLE
+                if ((hayGanador() != Estado.VACIO) || (tirada == 9)) {
+                    if (hayGanador() == Estado.JUG1) {
+                        finPartida = true
+                        puntosJug1 += 1
+                        binding.txtPuntos1.text = puntosJug1.toString()
+                        Toast.makeText(this, "GANADOR JUGADOR 1", Toast.LENGTH_SHORT).show()
+                    } else {
+                        if (hayGanador() == Estado.JUG2) {
+                            finPartida = true
+                            puntosJug2 += 1
+                            binding.txtPuntos2.text = puntosJug2.toString()
+                            Toast.makeText(this, "GANADOR JUGADOR 2", Toast.LENGTH_SHORT).show()
+                        } else {
+                            //no hay ganador y se llega a la tirada 9
+                            finPartida = true
+                            Toast.makeText(this, "¡¡EMPATE!!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    binding.button.visibility = View.VISIBLE
+                }
             }
         }
     }
