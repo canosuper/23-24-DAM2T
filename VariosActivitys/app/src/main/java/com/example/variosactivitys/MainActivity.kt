@@ -1,14 +1,30 @@
 package com.example.variosactivitys
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.variosactivitys.databinding.ActivityMainBinding
 import modelo.Persona
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    private val SECOND_ACTIVITY_REQUEST_CODE = 0
+
+    //Esta variable es necesaria para la llamada y espera de forma actual.
+    /*var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            // There are no request codes
+            val data: Intent? = result.data
+            // Get String data from Intent
+            val returnString = data!!.getStringExtra("valorEdicionV2")
+            //val returnString = data!!.getSerializableExtra("objeto")
+            // Set text view with string
+            binding.cajaTextoDevuelto.setText(returnString)
+        }
+    }*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e("ACSCO", "ONCREATE(), Ventana 1")
@@ -19,6 +35,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.boton.setOnClickListener {
             irAVentana2()
+        }
+
+        //Con este método llamamos a la segunda ventana y esperamos que nos devuelva algo.
+        //Usamos la forma deprecated, pero todavía vigente, de: startActivityForResult.
+        //Lo que nos devuelva la segunda ventana será tratado en el método onActivityResult (un poco más abajo).
+        binding.btEsperaRespuestaDepre.setOnClickListener {
+            // Start the SecondActivity
+            Log.e("ACSCO", "Boton Depre1")
+            val intent = Intent(this, Ventana2::class.java)
+            Log.e("ACSCO", "Boton Depre2")
+            startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE)
+            Log.e("ACSCO", "Boton Depre3")
         }
 
     }
@@ -33,6 +61,23 @@ class MainActivity : AppCompatActivity() {
         miIntent.putExtra("obj",p)
         startActivity(miIntent)
 
+    }
+
+    // This method is called when the second activity finishes
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Check that it is the SecondActivity with an OK result
+        if (requestCode == SECOND_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+
+                // Get String data from Intent
+                val returnString = data!!.getStringExtra("keyName")
+
+                // Set text view with string
+                binding.cajaTextoDevuelto.setText(returnString)
+            }
+        }
     }
 
     override fun onStart() {
