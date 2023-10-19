@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="rojoapagado">#5E2020</color>
+    <color name="rojoencendido">#FA0404</color>
+    <color name="amarilloapagado">#8E762E</color>
+    <color name="amarilloencendido">#F6DD04</color>
+    <color name="azulapagado">#212D6E</color>
+    <color name="azulencendido">#1134FA</color>
+    <color name="verdeapagado">#305931</color>
+    <color name="verdeencendido">#04F40E</color>
+</resources>
