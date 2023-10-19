@@ -16,14 +16,15 @@ class Ventana2 : AppCompatActivity() {
         setContentView(binding.root)
         //setContentView(R.layout.activity_ventana2)
 
-        var nombre = intent.getStringExtra("nombre")
+        /*var nombre = intent.getStringExtra("nombre")
         var edad = intent.getStringExtra("edad")
-        var persona:Persona = Persona(nombre,edad)
-        binding.cajaNombre.setText(nombre)
-        binding.cajaEdad.setText(edad)
+        var persona:Persona = Persona(nombre,edad)*/
+        var p : Persona = intent.getSerializableExtra("obj") as Persona
+        binding.cajaNombre.setText(p.nombre)
+        binding.cajaEdad.setText(p.edad)
 
 
-        Personas.aniadirPersona(persona)
+        Personas.aniadirPersona(p)
         var cadena: String = ""
         var i:Int=1
         for(p in Personas.personas){

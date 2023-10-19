@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.variosactivitys.databinding.ActivityMainBinding
+import modelo.Persona
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -26,9 +27,12 @@ class MainActivity : AppCompatActivity() {
         //podríamos crear aqui el objeto y pasarlo, en vez de los atributos individualmente.
         // Persona debería ser serializable en ese caso.
         var miIntent: Intent = Intent(this, Ventana2::class.java)
-        miIntent.putExtra("nombre", binding.cajaNombre.text.toString())
-        miIntent.putExtra("edad", binding.cajaEdad.text.toString())
+        //miIntent.putExtra("nombre", binding.cajaNombre.text.toString())
+        //miIntent.putExtra("edad", binding.cajaEdad.text.toString())
+        var p = Persona(binding.cajaNombre.text.toString(), binding.cajaEdad.text.toString())
+        miIntent.putExtra("obj",p)
         startActivity(miIntent)
+
     }
 
     override fun onStart() {
