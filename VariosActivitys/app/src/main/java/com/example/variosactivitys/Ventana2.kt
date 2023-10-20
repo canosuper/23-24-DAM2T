@@ -22,7 +22,7 @@ class Ventana2 : AppCompatActivity() {
         /*var nombre = intent.getStringExtra("nombre")
         var edad = intent.getStringExtra("edad")
         var persona:Persona = Persona(nombre,edad)*/
-        /*var p : Persona = intent.getSerializableExtra("obj") as Persona
+        var p : Persona = intent.getSerializableExtra("obj") as Persona
         binding.cajaNombre.setText(p.nombre)
         binding.cajaEdad.setText(p.edad)
 
@@ -34,20 +34,20 @@ class Ventana2 : AppCompatActivity() {
             cadena+=" "+i+". " +p.nombre+" "+p.edad +"\n"
             i++
             binding.multiLine.setText(cadena)
-        }*/
+        }
         binding.boton.setOnClickListener {
             finish()
         }
 
         //Devolver datos a la ventana 1 de forma deprecated.
-        binding.btDevolverDepre.setOnClickListener {
+        binding.btDevolver.setOnClickListener {
             // Get the text from the EditText
             val stringToPassBack = binding.cajaDevolver.text.toString()
 
             // Put the String to pass back into an Intent and close this activity
             val intent = Intent()
             intent.putExtra("keyName", stringToPassBack)
-            setResult(Activity.RESULT_OK, intent)
+            setResult(Activity.RESULT_OK, intent)//si cancelase o no rellena, se pasa RESULT_CANCELED
             finish()
         }
     }
