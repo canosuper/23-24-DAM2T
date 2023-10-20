@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     * ver donde aumentar el nivel, na vez haya el usuario comprobado, y el boton no activarlo hasta que el user no cmprueba
     *
     *
-    *
+    *pruebaaaa
     * */
 
     lateinit var binding: ActivityMainBinding
@@ -47,35 +47,70 @@ class MainActivity : AppCompatActivity() {
         binding.cajaAzul.setOnClickListener {
             listaColoresJugador.add(Color.AZUL)
             jugada++
-            binding.cajaAzul.setBackgroundColor(getColor(R.color.azulencendido))
-           // Thread.sleep(500)
-            binding.cajaAzul.setBackgroundColor(getColor(R.color.azulapagado))
+            encenderApagar(Color.AZUL)
+//            binding.cajaAzul.setBackgroundColor(getColor(R.color.azulencendido))
+//            binding.cajaAzul.setBackgroundColor(getColor(R.color.azulapagado))
             comprobarJugada()
         }
         binding.cajaRojo.setOnClickListener {
             listaColoresJugador.add(Color.ROJO)
             jugada++
-            binding.cajaRojo.setBackgroundColor(getColor(R.color.rojoencendido))
-            //Thread.sleep(500)
-            binding.cajaRojo.setBackgroundColor(getColor(R.color.rojoapagado))
+            encenderApagar(Color.ROJO)
+//            binding.cajaRojo.setBackgroundColor(getColor(R.color.rojoencendido))
+//            binding.cajaRojo.setBackgroundColor(getColor(R.color.rojoapagado))
             comprobarJugada()
         }
         binding.cajaVerde.setOnClickListener {
             listaColoresJugador.add(Color.VERDE)
             jugada++
-            binding.cajaVerde.setBackgroundColor(getColor(R.color.verdeencendido))
-            //Thread.sleep(500)
-            binding.cajaVerde.setBackgroundColor(getColor(R.color.verdeapagado))
+            encenderApagar(Color.VERDE)
+//            binding.cajaVerde.setBackgroundColor(getColor(R.color.verdeencendido))
+//            binding.cajaVerde.setBackgroundColor(getColor(R.color.verdeapagado))
             comprobarJugada()
         }
         binding.cajaAmarillo.setOnClickListener {
             listaColoresJugador.add(Color.AMARILLO)
-            binding.cajaAmarillo.setBackgroundColor(getColor(R.color.amarilloencendido))
-            //Thread.sleep(500)
-            binding.cajaAmarillo.setBackgroundColor(getColor(R.color.amarilloapagado))
+//            binding.cajaAmarillo.setBackgroundColor(getColor(R.color.amarilloencendido))
+//            binding.cajaAmarillo.setBackgroundColor(getColor(R.color.amarilloapagado))
             jugada++
+            encenderApagar(Color.AMARILLO)
             comprobarJugada()
         }
+    }
+
+    private fun encenderApagar(color: Color) {
+
+        val timer = object : CountDownTimer((1000).toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                when (color) {
+                    Color.ROJO-> {
+                        binding.cajaRojo.setBackgroundColor(getColor(R.color.rojoencendido))
+
+                    }
+                    Color.AZUL-> {
+                        binding.cajaAzul.setBackgroundColor(getColor(R.color.azulencendido))
+
+                    }
+                    Color.AMARILLO-> {
+                        binding.cajaAmarillo.setBackgroundColor(getColor(R.color.amarilloencendido))
+
+                    }
+                    Color.VERDE-> {
+                        binding.cajaVerde.setBackgroundColor(getColor(R.color.verdeencendido))
+
+                    }
+                }
+
+            }
+            override fun onFinish() {
+                //si se necesita hacer algo al terminar las iteraciones es el momento
+                binding.cajaRojo.setBackgroundColor(getColor(R.color.rojoapagado))
+                binding.cajaAzul.setBackgroundColor(getColor(R.color.azulapagado))
+                binding.cajaAmarillo.setBackgroundColor(getColor(R.color.amarilloapagado))
+                binding.cajaVerde.setBackgroundColor(getColor(R.color.verdeapagado))
+            }
+        }
+        timer.start()
     }
 
     private fun comprobarJugada() {
