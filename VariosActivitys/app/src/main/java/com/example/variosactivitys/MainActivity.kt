@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             // There are no request codes
             val data: Intent? = result.data
             // Get String data from Intent
-            val returnString = data!!.getStringExtra("keyName")
+            val returnString = data!!.getStringExtra("miVariable")
             //val returnString = data!!.getSerializableExtra("objeto")
             // Set text view with string
             binding.cajaTextoDevuelto.setText(returnString)
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == SECOND_ACTIVITY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 // Get String data from Intent
-                val returnString = data!!.getStringExtra("keyName")
+                val returnString = data!!.getStringExtra("miVariable")
                 // Set text view with string
                 binding.cajaTextoDevuelto.setText(returnString)
             }

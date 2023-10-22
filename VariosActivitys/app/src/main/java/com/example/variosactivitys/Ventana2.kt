@@ -42,11 +42,11 @@ class Ventana2 : AppCompatActivity() {
         //Devolver datos a la ventana 1 de forma deprecated.
         binding.btDevolver.setOnClickListener {
             // Get the text from the EditText
-            val stringToPassBack = binding.cajaDevolver.text.toString()
+            val miVariable = binding.cajaDevolver.text.toString()
 
             // Put the String to pass back into an Intent and close this activity
             val intent = Intent()
-            intent.putExtra("keyName", stringToPassBack)
+            intent.putExtra("miVariable", miVariable)
             setResult(Activity.RESULT_OK, intent)//si cancelase o no rellena, se pasa RESULT_CANCELED
             finish()
         }
