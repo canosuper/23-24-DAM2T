@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             edNombre.setText("")
             edEdad.setText("")
             Toast.makeText(this, "Persona insertada", Toast.LENGTH_SHORT).show()
+            listarPersonas(view)
         }
     }
 
@@ -57,10 +58,13 @@ class MainActivity : AppCompatActivity() {
         edDNI.setText("")
         edNombre.setText("")
         edEdad.setText("")
-        if (cant == 1)
+        if (cant == 1) {
             Toast.makeText(this, "Se borró la persona con ese DNI", Toast.LENGTH_SHORT).show()
+            listarPersonas(view)
+        }
         else
             Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
+
     }
 
     fun modPersona(view: View) {
@@ -80,6 +84,7 @@ class MainActivity : AppCompatActivity() {
             else
                 Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
         }
+        listarPersonas(view)
     }
 
     fun buscarPersona(view: View) {
@@ -91,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "No existe una persona con ese DNI", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     fun listarPersonas(view: View) {
