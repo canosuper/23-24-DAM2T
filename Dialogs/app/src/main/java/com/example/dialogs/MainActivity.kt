@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(applicationContext,
             "Has pulsado sí", Toast.LENGTH_SHORT).show()
     }
-    val negativeButtonClick = { dialog: DialogInterface, which: Int ->
+    val  negativeButtonClick = { dialog: DialogInterface, which: Int ->
         Toast.makeText(applicationContext,
             "Has pulsado no", Toast.LENGTH_SHORT).show()
     }
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,
                         "Has pulsado no", Toast.LENGTH_SHORT).show()
                 }))
-                show()
+                show() //builder.show()
             }
         }
         binding.btTres.setOnClickListener {
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 setTitle("Título")
                 setMessage("Mensaje a mostrar")
                 setPositiveButton("OK", DialogInterface.OnClickListener(function = positiveButtonClick))
-                setNegativeButton("No", negativeButtonClick)
+                setNegativeButton("No",negativeButtonClick)
                 setNeutralButton("Quizá", neutralButtonClick)
                 show()
             }
@@ -78,7 +78,9 @@ class MainActivity : AppCompatActivity() {
             val items = arrayOf("Microsoft", "Apple", "Amazon", "Google")
             val selectedList = ArrayList<Int>()
             val builder = AlertDialog.Builder(this)
-
+            //which hace referencia al item actual. en cada opción se genera su listener mediante funcion lambda y lo añades o no a la lista de seleccionados.
+            // de hecho puedo cambiar ese nombre ya q estoy definiendo ahí mismo su nombre en la funcion.
+            //Lo que guardan son las posiciones y luego accedo a ella y muestro en la linea 99.
             builder.setTitle("Varias opciones")
             builder.setMultiChoiceItems(items, null
             ) { dialog, which, isChecked ->
@@ -90,6 +92,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             builder.setPositiveButton("Hecho") { dialogInterface, i ->
+                //obtento las cadenas en ese array, selectedStrings, para luego mostrarlas en el Toast.
                 val selectedStrings = ArrayList<String>()
 
                 for (j in selectedList.indices) {
