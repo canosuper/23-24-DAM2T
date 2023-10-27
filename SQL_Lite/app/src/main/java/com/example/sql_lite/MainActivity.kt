@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var botonBorrar: Button
     lateinit var botonEditar: Button
     lateinit var txtListdo: TextView
-
+    //En este proyecto el acceso a los controles y la creación de los eventos está hecha de la primera manera que vimos
+    //El motivo es didáctico, para que no lo perdamos de vista porque a veces es útil o más rápido y viene bien que
+    //estéis familiarizados, porque en una empresa os podéis encontrar esta manera de hacerlo.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,12 +46,17 @@ class MainActivity : AppCompatActivity() {
                 edNombre.getText().toString(),
                 edEdad.getText().toString().toInt()
             )
-            Conexion.addPersona(this, pers)
+            var codigo=Conexion.addPersona(this, pers)
             edDNI.setText("")
             edNombre.setText("")
             edEdad.setText("")
-            Toast.makeText(this, "Persona insertada", Toast.LENGTH_SHORT).show()
-            listarPersonas(view)
+            //la L es por ser un Long lo que trae codigo.
+            if(codigo!=-1L) {
+                Toast.makeText(this, "Persona insertada", Toast.LENGTH_SHORT).show()
+                listarPersonas(view)
+            }
+            else
+                Toast.makeText(this, "Ya existe ese DNI. Persona NO insertada", Toast.LENGTH_SHORT).show()
         }
     }
 

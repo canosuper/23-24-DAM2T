@@ -13,21 +13,23 @@ object Conexion {
         this.nombreBD = nombreBD
     }
 
-    fun addPersona(contexto: AppCompatActivity, p: Persona){
+    fun addPersona(contexto: AppCompatActivity, p: Persona):Long{
         val admin = AdminSQLIteConexion(contexto, nombreBD, null, 1)
         val bd = admin.writableDatabase
         val registro = ContentValues()
         registro.put("dni", p.dni)
         registro.put("nombre",p.nombre)
         registro.put("edad", p.edad.toString())
-        bd.insert("personas", null, registro)
+        val codigo = bd.insert("personas", null, registro)
         bd.close()
+        return codigo
     }
 
     fun delPersona(contexto: AppCompatActivity, dni: String):Int{
         val admin = AdminSQLIteConexion(contexto, nombreBD, null, 1)
         val bd = admin.writableDatabase
-        val cant = bd.delete("personas", "dni='${dni}'", null)
+        //val cant = bd.delete("personas", "dni='${dni}'", null)
+        val cant = bd.delete("personas", "dni=?", arrayOf(dni.toString()))
         bd.close()
         return cant
     }
@@ -38,7 +40,12 @@ object Conexion {
         val registro = ContentValues()
         registro.put("nombre", p.nombre)
         registro.put("edad", p.edad)
-        val cant = bd.update("personas", registro, "dni='${dni}'", null)
+       // val cant = bd.update("personas", registro, "dni='${dni}'", null)
+        val cant = bd.update("personas", registro, "dni=?", arrayOf(dni.toString()))
+        //val cant = bd.update("personas", registro, "dni=? AND activo=?", arrayOf(dni.toString(), activo.toString()))
+        //Esta línea de más arriba es para tener un ejemplo si el where tuviese más condiciones
+        //es mejor la forma de la línea 43 que la de la línea 42, ya que es peligroso inyectar sql directamente al controlarse peor los errores
+
         bd.close()
         return cant
     }
@@ -47,10 +54,16 @@ object Conexion {
         var p:Persona? = null
         val admin = AdminSQLIteConexion(contexto, nombreBD, null, 1)
         val bd = admin.writableDatabase
+        /*Esta funciona pero es mejor como está hecho justo debajo con ?
         val fila = bd.rawQuery(
             "select nombre,edad from personas where dni='${dni}'",
             null
+        )*/
+        val fila =bd.rawQuery(
+            "SELECT nombre, edad FROM personas WHERE dni=?",
+            arrayOf(dni.toString())
         )
+
         if (fila.moveToFirst()) {
             p = Persona(dni, fila.getString(0), fila.getInt(1))
         }
