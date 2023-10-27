@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import Modelo.Persona
 import Auxiliar.Conexion
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     lateinit var edDNI: EditText
@@ -24,8 +25,10 @@ class MainActivity : AppCompatActivity() {
     //estéis familiarizados, porque en una empresa os podéis encontrar esta manera de hacerlo.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.e("ACSCO","Paso por OnCreate ")
         setContentView(R.layout.activity_main)
         edDNI = findViewById(R.id.edDNI)
+        edDNI.requestFocus()
         edNombre = findViewById<EditText>(R.id.edNombre)
         edEdad = findViewById<EditText>(R.id.edEdad)
         botonAdd = findViewById(R.id.btnAdd)
@@ -50,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             edDNI.setText("")
             edNombre.setText("")
             edEdad.setText("")
+            edDNI.requestFocus()
             //la L es por ser un Long lo que trae codigo.
             if(codigo!=-1L) {
                 Toast.makeText(this, "Persona insertada", Toast.LENGTH_SHORT).show()
