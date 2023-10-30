@@ -1,5 +1,6 @@
 package com.example.toolbarymenupuntos
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.toolbarPrincipal.title = "    Mi aplicación DAM"
-        binding.toolbarPrincipal.subtitle = "     Subtitulo"
+        binding.toolbarPrincipal.subtitle = "     Principal"
         binding.toolbarPrincipal.setLogo(R.drawable.ic_logo)
 
         //aquí simplemente inflo la toolBaar, pero aún no hay opciones ni botón home.
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.mnOp1 -> {
+                irAVentanaOpcion1()
                 Toast.makeText(this, "Opción 1", Toast.LENGTH_LONG).show()
             }
             R.id.mnOp2 -> {
@@ -52,4 +54,15 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+    /*private fun irAVentanaOpcion1() {
+
+        var miIntent: Intent = Intent(this, VentanaOpcion1::class.java)
+        startActivity(miIntent)
+    }*/
+    //version lambda de la funcion. Unit equivale a void de Java.
+    private val irAVentanaOpcion1: () -> Unit = {
+        val miIntent = Intent(this, VentanaOpcion1::class.java)
+        startActivity(miIntent)
+    }
+
 }
