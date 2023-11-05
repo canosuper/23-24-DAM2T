@@ -49,7 +49,7 @@ object Conexion {
         val cant = bd.update("personas", registro, "dni=?", arrayOf(dni.toString()))
         //val cant = bd.update("personas", registro, "dni=? AND activo=?", arrayOf(dni.toString(), activo.toString()))
         //Esta línea de más arriba es para tener un ejemplo si el where tuviese más condiciones
-        //es mejor la forma de la línea 43 que la de la línea 42, ya que es peligroso inyectar sql directamente al controlarse peor los errores
+        //es mejor la forma de la línea 49 que la de la línea 48, ya que es peligroso inyectar sql directamente al controlarse peor los errores
         //cant trae los datos actualizados.
         bd.close()
         return cant
