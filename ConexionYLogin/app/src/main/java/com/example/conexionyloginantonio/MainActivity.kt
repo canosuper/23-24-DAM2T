@@ -17,12 +17,20 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
+import java.io.File
+
+
+
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     //Para la autenticación, de cualquier tipo.
     private lateinit var firebaseauth : FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
+
     val TAG = "ACSCO"
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -65,11 +73,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         //------------------ Login Google -------------------
         //------------------------------- -Autenticación Google --------------------------------------------------
         //se hace un signOut por si había algún login antes.
         firebaseauth.signOut()
-        //esta variable me conecta con  google. y todo este bloque prepara la ventana de google que se destriba enb el loginInGoogle
+        //clearGooglePlayServicesCache()
+
+        //esta variable me conecta con  google. y todo este bloque prepara la ventana de google que se destripa en el loginInGoogle
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.your_web_client_id))
             .requestEmail()
@@ -82,9 +93,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     //******************************* Para el login con Google ******************************
-    private lateinit var googleSignInClient: GoogleSignInClient
+    //--------
+    private fun loginEnGoogle(){
+        //este método es nuestro.
+        val signInClient = googleSignInClient.signInIntent
+        launcherVentanaGoogle.launch(signInClient)
+        //milauncherVentanaGoogle.launch(signInClient)
+    }
 
-    //con este launcher, abro la ventana que me lelva a la validacion de Google.
+
+    //con este launcher, abro la ventana que me lleva a la validacion de Google.
     private val launcherVentanaGoogle =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
         //si la ventana va bien, se accede a las propiedades que trae la propia ventana q llamamos y recogemos en result.
         if (result.resultCode == Activity.RESULT_OK){
@@ -122,13 +140,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //--------
-    private fun loginEnGoogle(){
-        //este método es nuestro.
-        val signInClient = googleSignInClient.signInIntent
-        launcherVentanaGoogle.launch(signInClient)
-        //milauncherVentanaGoogle.launch(signInClient)
-    }
+
 
     //************************************** Funciones auxiliares **************************************
     //*********************************************************************************
@@ -152,4 +164,13 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(homeIntent)
     }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        FirebaseAuth.getInstance().signOut()
+    }
+
+
+
 }
