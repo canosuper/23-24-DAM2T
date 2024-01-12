@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             val fragment1 = FragmentoA()
 
             val mBundle = Bundle()
-            mBundle.putString("edTextActivity",binding.edCaja.text.toString())
+            mBundle.putString("variabe1",binding.edCaja.text.toString())
             fragment1.arguments = mBundle
             fragmentTransaction.replace(R.id.miFragmento, fragment1).commit()
         }

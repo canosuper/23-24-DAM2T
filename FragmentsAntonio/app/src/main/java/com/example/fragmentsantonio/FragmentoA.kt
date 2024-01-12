@@ -21,18 +21,11 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentoA : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     private lateinit var binding: FragmentFragmentoABinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +35,7 @@ class FragmentoA : Fragment() {
         val view = binding.root
         // Gets the data from the passed bundle
         val bundle = arguments
-        val message = bundle!!.getString("edTextActivity")
+        val message = bundle!!.getString("variabe1")
 
         // Sets the derived data (type String) in the TextView
         binding.txtF1.text = message
@@ -65,23 +58,5 @@ class FragmentoA : Fragment() {
             Toast.makeText(this.context,"Pulsado el botón de dentro del F1", Toast.LENGTH_SHORT).show()
         }
     }
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentoA.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentoA().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }
